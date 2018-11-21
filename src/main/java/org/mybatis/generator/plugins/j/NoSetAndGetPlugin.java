@@ -5,9 +5,7 @@ import org.mybatis.generator.api.dom.java.*;
 import org.mybatis.generator.api.dom.xml.Document;
 import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.config.Context;
-import org.mybatis.generator.internal.util.StringUtility;
 
-import java.text.MessageFormat;
 import java.util.List;
 
 /**
