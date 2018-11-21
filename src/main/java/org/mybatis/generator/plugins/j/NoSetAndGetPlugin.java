@@ -32,12 +32,15 @@ public class NoSetAndGetPlugin extends PluginAdapter {
         topLevelClass.addImportedType("lombok.Setter");
         topLevelClass.addImportedType("lombok.ToString");
         topLevelClass.addImportedType("lombok.NoArgsConstructor");
+        //链式setter
+        topLevelClass.addImportedType("lombok.experimental.Accessors");
 
         //该代码表示在生成class的时候，向topLevelClass添加一个注解
         topLevelClass.addAnnotation("@Getter");
         topLevelClass.addAnnotation("@Setter");
         topLevelClass.addAnnotation("@ToString");
         topLevelClass.addAnnotation("@NoArgsConstructor");
+        topLevelClass.addAnnotation("@Accessors(chain = true)");
         return super.modelBaseRecordClassGenerated(topLevelClass,
                 introspectedTable);
     }
