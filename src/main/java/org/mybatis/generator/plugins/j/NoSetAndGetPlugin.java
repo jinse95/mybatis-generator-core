@@ -25,7 +25,12 @@ public class NoSetAndGetPlugin extends PluginAdapter {
     @Override
     public boolean modelBaseRecordClassGenerated(TopLevelClass topLevelClass,
                                                  IntrospectedTable introspectedTable) {
-        topLevelClass.addImportedType("javax.persistence.Id");
+
+        //包含有主键列
+        List<IntrospectedColumn> columnList = introspectedTable.getPrimaryKeyColumns();
+        if (columnList!=null && columnList.size() > 0){
+            topLevelClass.addImportedType("javax.persistence.Id");
+        }
         topLevelClass.addImportedType("lombok.Getter");
         topLevelClass.addImportedType("lombok.Setter");
         topLevelClass.addImportedType("lombok.ToString");
